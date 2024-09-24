@@ -10,7 +10,6 @@ public class GroundFall : MonoBehaviour
     private float startingStepTime;
     private float totalTimeStepped;
     private float previousStepTime;
-
     private Renderer r;
     
     private Rigidbody rb;
