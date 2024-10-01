@@ -1,6 +1,17 @@
 # FallBrawl
 
-Sprint 1 Tasks:
+Sprint 1 Video Link: https://drive.google.com/file/d/1Pj9mRs4WwGfHKzwlaYcToDVYAh139LFd/view?usp=drive_link
+
+Sprint 1 Tasks:<br>
+Added GroundFall.cs: Script that causes pieces to fall after a set amount of time. This script also changes the color of the blocks to red as time runs out.
+Created UI/UX mockups in Figma of select screen, home screen, and color scheme.
+Created and made progress on character designs and assets.
+Created and decided on 3 stages for the game to be played on. 
+
+# Setup Instructions
+- clone the repository
+- in unity, you can view the different scenes, scripts, and assets we have added to the project. 
+
 
 Team Member Roles 
 
