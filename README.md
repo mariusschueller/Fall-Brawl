@@ -8,6 +8,8 @@ Created UI/UX mockups in Figma of select screen, home screen, and color scheme.
 Created and made progress on character designs and assets.
 Created and decided on 3 stages for the game to be played on. 
 
+Sprint 2 Tasks: <br> Allowing two players to join the game, creating begin and join screen on unity, creating waiting room screen, developing player animations and rigging, adding assets/colors/textures/backgrounds to game map 
+
 # Setup Instructions
 - clone the repository
 - in unity, you can view the different scenes, scripts, and assets we have added to the project. 
