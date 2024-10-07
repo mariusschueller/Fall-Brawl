@@ -15,75 +15,44 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
 
     private int playerCount;
     private int roomSize;
-    [SerializeField] private int minPlayersToStart;
 
     [SerializeField] private TextMeshProUGUI roomCountDisplay;
-    [SerializeField] private TextMeshProUGUI timerToStartDisplay;
-
-    private bool readyToCountDown;
-    private bool readyToStart;
+    [SerializeField] private TextMeshProUGUI waitingForHost;
+    
+    [SerializeField] private Button startButton;
+    
     private bool startingGame;
-
-    private float timerToStartGame;
-    private float notFullGameTimer;
-    private float fullGameTimer;
-
-    [SerializeField] private float maxWaitTime;
-    [SerializeField] private float maxFullGameWaitTime;
     
     // Start is called before the first frame update
     void Start()
     {
         myPhotonView = GetComponent<PhotonView>();
-        fullGameTimer = maxFullGameWaitTime;
-        notFullGameTimer = maxWaitTime;
-        timerToStartGame = maxWaitTime;
 
         PlayerCountUpdate();
+        
+        // if client then show start button
+        if (PhotonNetwork.IsMasterClient)
+        {
+            startButton.gameObject.SetActive(true);
+            waitingForHost.gameObject.SetActive(false);
+        }
+        
     }
 
     void PlayerCountUpdate()
     {
         playerCount = PhotonNetwork.PlayerList.Length;
         roomSize = PhotonNetwork.CurrentRoom.MaxPlayers;
-        roomCountDisplay.text = "players: " + playerCount + " room size:" + roomSize;
-
-        if (playerCount == roomSize)
-        {
-            readyToStart = true;
-        }
-        else if (playerCount >= minPlayersToStart)
-        {
-            readyToCountDown = true;
-        }
-        else
-        {
-            readyToCountDown = false;
-            readyToStart = false;
-        }
+        roomCountDisplay.text = "Players Joined: " + playerCount;
+        
+        // check that at least 2 people are in the room and then set start to interactable if client
+        startButton.interactable = playerCount > 1;
+        
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         PlayerCountUpdate();
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            myPhotonView.RPC("RPC_SendTimer", RpcTarget.Others, timerToStartGame);
-            // RPC call has 2 parameters, and more if the method name given has parameters
-        }
-        
-    }
-
-    [PunRPC]
-    private void RPC_SendTimer(float timeIn)
-    {
-        timerToStartGame = timeIn;
-        notFullGameTimer = timeIn;
-        if (timeIn > fullGameTimer)
-        {
-            fullGameTimer = timeIn;
-        }
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -91,45 +60,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
         PlayerCountUpdate();
     }
 
-    void Update()
-    {
-        WaitingForMorePlayers();
-    }
-
-    private void WaitingForMorePlayers()
-    {
-        if (playerCount <= 1)
-            ResetTimer();
-        if (readyToStart)
-        {
-            fullGameTimer -= Time.deltaTime;
-            timerToStartGame = fullGameTimer;
-        }
-        else if (readyToCountDown)
-        {
-            notFullGameTimer -= Time.deltaTime;
-            timerToStartGame = notFullGameTimer;
-        }
-        
-        string tempTimer = string.Format("{0:00}", timerToStartGame);
-        timerToStartDisplay.text = tempTimer;
-
-        if (timerToStartGame <= 0f)
-        {
-            if (startingGame)
-                return;
-            StartGame();
-        }
-    }
-
-    void ResetTimer()
-    {
-        timerToStartGame = maxWaitTime;
-        notFullGameTimer = maxWaitTime;
-        fullGameTimer = maxFullGameWaitTime;
-    }
-
-    void StartGame()
+    public void StartGame()
     {
         startingGame = true;
         if (!PhotonNetwork.IsMasterClient)

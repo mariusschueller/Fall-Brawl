@@ -1,6 +1,11 @@
+using System;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
+using TMPro;
+using System.Text.RegularExpressions;
 
 public class LobbyController : MonoBehaviourPunCallbacks
 {
@@ -9,6 +14,12 @@ public class LobbyController : MonoBehaviourPunCallbacks
     
     [SerializeField]
     private GameObject CancelButton;
+    
+    [SerializeField]
+    private Button JoinCodeButton;
+    
+    [SerializeField]
+    private TextMeshProUGUI joinCodeText;
 
     [SerializeField] 
     private int roomSize;
@@ -47,11 +58,17 @@ public class LobbyController : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom("Room" + randomRoomNumber, roomOptions);
         Debug.Log("Created Room" + randomRoomNumber);
     }
+    
+    
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.Log("Failed to create room, trying again");
         CreateRoom();
     }
-    
+
+    void Update()
+    {
+        JoinCodeButton.interactable = Regex.IsMatch(joinCodeText.text, @"[a-zA-Z0-9]");
+    }
 }
