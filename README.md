@@ -10,6 +10,8 @@ Created and decided on 3 stages for the game to be played on.
 
 Sprint 2 Tasks: <br> Allowing two players to join the game, creating begin and join screen on unity, creating waiting room screen, developing player animations and rigging, adding assets/colors/textures/backgrounds to game map 
 
+Sprint 2 APK: https://drive.google.com/file/d/1hovu_yjRm1NtgtoWkEA2Sieu28Oo1TXC/view?usp=sharing
+
 # Setup Instructions
 - clone the repository
 - in unity, you can view the different scenes, scripts, and assets we have added to the project. 
