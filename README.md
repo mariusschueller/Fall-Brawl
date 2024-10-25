@@ -14,6 +14,10 @@ Sprint 2 Tasks: <br> Allowing two players to join the game, creating begin and j
 
 Sprint 2 APK: https://drive.google.com/file/d/1hovu_yjRm1NtgtoWkEA2Sieu28Oo1TXC/view?usp=sharing
 
+Sprint 3 Tasks: <br> Allowing two players to throw pieces at each other after joining the game. Deciding on the music to use in the game. Improved rigging. Adding in the powerups designs. 
+
+Sprint 3 APK: https://drive.google.com/file/d/1VczTp46BB7084_U0quvkYZEZ4d1-re1l/view?usp=sharing
+
 # Setup Instructions
 - clone the repository
 - in unity, you can view the different scenes, scripts, and assets we have added to the project. 
