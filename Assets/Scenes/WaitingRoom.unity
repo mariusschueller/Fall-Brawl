@@ -3034,11 +3034,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8bc1af95f508cbaa6531362b6291e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplayerSceneIndex: 2
+  multiplayerSceneIndex: 3
   menuSceneIndex: 0
   roomCountDisplay: {fileID: 1009995134}
   waitingForHost: {fileID: 1830287510}
   startButton: {fileID: 793437494}
+  minPlayers: 1
 --- !u!4 &1972863732
 Transform:
   m_ObjectHideFlags: 0

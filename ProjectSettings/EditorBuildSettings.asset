@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 56b546a8f00b2421799d70646043e45f
+  - enabled: 1
     path: Assets/Scenes/NetworkingStart.unity
     guid: 74927338118c318a8ad80bbb2164ae98
   - enabled: 1
     path: Assets/Scenes/WaitingRoom.unity
     guid: 54382639c6031b72e96ec6f3111455b1
+  - enabled: 1
+    path: Assets/Scenes/TestGame.unity
+    guid: 1f0620711daad57a89d4c2add5ff30ad
   - enabled: 1
     path: Assets/Scenes/FallingScene.unity
     guid: a960a02e44cbb91e3a2a00eb488fe1e5

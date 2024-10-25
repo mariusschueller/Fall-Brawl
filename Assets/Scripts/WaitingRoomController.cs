@@ -22,6 +22,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
     [SerializeField] private Button startButton;
     
     private bool startingGame;
+    public int minPlayers = 2;
     
     // Start is called before the first frame update
     void Start()
@@ -46,7 +47,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
         roomCountDisplay.text = "Players Joined: " + playerCount;
         
         // check that at least 2 people are in the room and then set start to interactable if client
-        startButton.interactable = playerCount > 1;
+        startButton.interactable = playerCount >= minPlayers;
         
     }
 
