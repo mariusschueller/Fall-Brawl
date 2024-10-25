@@ -22,6 +22,15 @@ Sprint 3 APK: https://drive.google.com/file/d/1VczTp46BB7084_U0quvkYZEZ4d1-re1l/
 - clone the repository
 - in unity, you can view the different scenes, scripts, and assets we have added to the project. 
 
+# Design 
+Once the user opens the game, they will land on a simulated game scene accompanied by music. After a few seconds, the ground beneath them will disappear, and they will fall into darkness, mirroring an event that happens in the game itself. This sudden fall adds an interactive and immersive element right from the start, creating an unexpected twist that helps draw users into the game's atmosphere.
+
+After the fall, the start screen will appear with a black background, the game's logo, and options to "Start" the game, learn "How to Play," "Quit," or learn "About" the game. The black background continues the feeling of being in darkness, maintaining continuity with the earlier sequence and adding a sense of mystery. The game's logo is prominently displayed, contrasting with the dark background to grab the user's attention.
+
+The design choice to include the falling scene adds an element of surprise, evoking emotions such as curiosity and suspense, which help set the tone for the gameplay. This unexpected transition immediately hooks the player, enhancing the overall user experience and making the game memorable from the first interaction.
+
+The options on the start screen are visually distinct, with animations like fading or slight bouncing to make the screen feel dynamic and engaging. The buttons could have an ethereal glow to match the dark atmosphere, providing a cohesive visual theme. Sound effects, such as a "whooshing" sound during the fall and a brief moment of silence before the start screen appears, contribute to the immersive experience.
+
 
 Team Member Roles 
 
