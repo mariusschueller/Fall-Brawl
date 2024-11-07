@@ -9,7 +9,7 @@ public class CubeGridGenerator : MonoBehaviour
     public int cols = 8;
     public float spacing = 1.0f; // adjust if your cubes are bigger or smaller than 1 unit
 
-    void Start()
+    void Awake()
     {
         GenerateGrid();
     }
@@ -20,7 +20,7 @@ public class CubeGridGenerator : MonoBehaviour
         {
             for (int j = 0; j < cols; j++)
             {
-                Vector3 position = new Vector3(i * spacing, 0, j * spacing);
+                Vector3 position = new Vector3(i * spacing, -1, j * spacing);
                 Instantiate(cubePrefab, position, Quaternion.identity);
             }
         }
