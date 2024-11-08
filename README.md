@@ -20,6 +20,7 @@ Sprint 3 Tasks: <br> Allowing two players to throw pieces at each other after jo
 
 Sprint 3 APK: https://drive.google.com/file/d/1VczTp46BB7084_U0quvkYZEZ4d1-re1l/view?usp=sharing
 
+Sprint 4 Tasks: <br> Two players can now throw pieces at each other and get knocked back when they get hit by a piece. Game over logic triggers when the player falls. Block gets destroyed when colliding with the player. Powerups can be picked up. Game over scenes have been designed in Unity. Character rigging with our custom character desing.
 
 Sprint 4 APK: https://drive.google.com/file/d/1SY3o2dt5TVCYSZbaqrISth8bAS_ROFQ_/view?usp=sharing
 
