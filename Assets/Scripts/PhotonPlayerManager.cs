@@ -25,11 +25,22 @@ public class PhotonPlayerManager : MonoBehaviourPun
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (pv.IsMine)
-        {
+    //void Update()
+    //{
+    //    if (pv.IsMine)
+    //    {
             
+    //    }
+    //}
+    
+    [PunRPC]
+    public void GameOver()
+    {
+        if (photonView.IsMine)
+        {
+        	Debug.Log("Game Over!");
+            // Show the game-over UI on the local player's screen
+            //gameOverUI.SetActive(true);
         }
     }
 
