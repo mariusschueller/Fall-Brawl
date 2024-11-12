@@ -6,6 +6,8 @@ Sprint 2 Video Link: https://drive.google.com/file/d/1NUsHQjllTC9ExTaFZs1tVABBup
 
 Sprint 3 Video Link: https://drive.google.com/file/d/1ha2HNWAVX6is9yv40mjdYjJGQcyunpIG/view?usp=drive_link
 
+Sprint 4 Video Link: https://drive.google.com/file/d/15PcDmPQPISeFms4Q31CREy-0r27YUUIU/view?usp=sharing
+
 Sprint 1 Tasks:<br>
 Added GroundFall.cs: Script that causes pieces to fall after a set amount of time. This script also changes the color of the blocks to red as time runs out.
 Created UI/UX mockups in Figma of select screen, home screen, and color scheme.
@@ -19,6 +21,10 @@ Sprint 2 APK: https://drive.google.com/file/d/1hovu_yjRm1NtgtoWkEA2Sieu28Oo1TXC/
 Sprint 3 Tasks: <br> Allowing two players to throw pieces at each other after joining the game. Deciding on the music to use in the game. Improved rigging. Adding in the powerups designs. 
 
 Sprint 3 APK: https://drive.google.com/file/d/1VczTp46BB7084_U0quvkYZEZ4d1-re1l/view?usp=sharing
+
+Sprint 4 Tasks: <br> Two players can now throw pieces at each other and get knocked back when they get hit by a piece. Game over logic triggers when the player falls. Block gets destroyed when colliding with the player. Powerups can be picked up. Game over scenes have been designed in Unity. Character rigging with our custom character desing.
+
+Sprint 4 APK: https://drive.google.com/file/d/1SY3o2dt5TVCYSZbaqrISth8bAS_ROFQ_/view?usp=sharing
 
 # Setup Instructions
 - clone the repository
