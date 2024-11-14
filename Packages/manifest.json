@@ -1,12 +1,9 @@
 {
   "dependencies": {
-<<<<<<< HEAD
+    "com.meta.xr.sdk.all": "67.0.0",
     "com.unity.animation.rigging": "1.2.1",
     "com.unity.burst": "1.8.17",
     "com.unity.cinemachine": "2.10.1",
-=======
-    "com.meta.xr.sdk.all": "67.0.0",
->>>>>>> main
     "com.unity.collab-proxy": "2.5.1",
     "com.unity.ext.nunit": "1.0.6",
     "com.unity.ide.rider": "3.0.31",
@@ -28,6 +25,7 @@
     "com.unity.xr.interaction.toolkit": "2.6.3",
     "com.unity.xr.management": "4.5.0",
     "com.unity.xr.oculus": "4.2.0",
+    "com.unity.xr.openxr": "1.12.1",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -62,3 +60,4 @@
     "com.unity.modules.xr": "1.0.0"
   }
 }
+
