@@ -8,6 +8,20 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+<<<<<<< HEAD
+  - enabled: 0
+    path: Assets/Scenes/sad.unity
+    guid: 902e4216f6b484f94ab1ad828a6e326d
+  - enabled: 0
+    path: Assets/Scenes/Tmp.unity
+    guid: dd4b380efcaec4761b957f1b3c8d82d2
+  - enabled: 0
+    path: Assets/Scenes/Kai-Tmp.unity
+    guid: b657524863cb54adfa0eca46c2455974
+  - enabled: 1
+    path: Assets/Scenes/FINAL-CharacterRiggingAndMovement.unity
+    guid: 9e1b17ad4f0e94272a1264a0cde98e17
+=======
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 56b546a8f00b2421799d70646043e45f
@@ -23,6 +37,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FallingScene.unity
     guid: a960a02e44cbb91e3a2a00eb488fe1e5
+>>>>>>> main
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8587ec2b134b4a47999fde1936262eb5,
       type: 2}
