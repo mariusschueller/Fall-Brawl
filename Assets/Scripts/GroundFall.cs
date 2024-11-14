@@ -40,7 +40,7 @@ public class GroundFall : MonoBehaviour
 
         if (totalTimeStepped >= timeUntilFall)
         {
-            Debug.Log("Fall");
+            //Debug.Log("Fall");
             rb.constraints = RigidbodyConstraints.None;
             rb.useGravity = true;
             r.material.color = Color.red;
@@ -56,7 +56,7 @@ public class GroundFall : MonoBehaviour
             startingStepTime = Time.time;
 
 
-            Debug.Log("starting step");
+            //Debug.Log("starting step");
             
         }
     }
@@ -67,7 +67,7 @@ public class GroundFall : MonoBehaviour
         {
             isSteppedOn -= 1;
             previousStepTime += totalTimeStepped;
-            Debug.Log("Ending step");
+            //Debug.Log("Ending step");
         }
     }
 
