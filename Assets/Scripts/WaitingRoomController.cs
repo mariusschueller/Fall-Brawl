@@ -19,7 +19,11 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
     [SerializeField] private TextMeshProUGUI roomCountDisplay;
     [SerializeField] private TextMeshProUGUI waitingForHost;
     
+    [SerializeField] private GameObject selects;
+    
     [SerializeField] private Button startButton;
+    
+    private bool sceneSet;
     
     private bool startingGame;
     public int minPlayers = 2;
@@ -31,12 +35,17 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
 
         PlayerCountUpdate();
         
+        sceneSet = false;
+        
         // if client then show start button
         if (PhotonNetwork.IsMasterClient)
         {
+            selects.gameObject.SetActive(true);
             startButton.gameObject.SetActive(true);
             waitingForHost.gameObject.SetActive(false);
+            
         }
+        
         
     }
 
@@ -47,7 +56,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
         roomCountDisplay.text = "Players Joined: " + playerCount;
         
         // check that at least 2 people are in the room and then set start to interactable if client
-        startButton.interactable = playerCount >= minPlayers;
+        startButton.interactable = (playerCount >= minPlayers) && sceneSet;
         
     }
 
@@ -75,5 +84,17 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene(menuSceneIndex);
+    }
+    
+    public void SetSceneSpace()
+    {
+    	Debug.Log("Space being set");
+    	sceneSet = true;
+    }
+    
+    public void SetSceneWater()
+    {
+    	Debug.Log("Water being set");
+    	sceneSet = true;
     }
 }
