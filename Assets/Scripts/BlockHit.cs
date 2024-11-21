@@ -5,10 +5,16 @@ public class BlockHit : MonoBehaviourPunCallbacks
 {
 	public bool isThrown;
 	public float knockbackForce = 10f;
+	private BoxCollider bc;
+	private Rigidbody rb;
+	public GameObject particleEffectPrefab;
 	
 	private void Start(){
 	
 		isThrown = false;
+		bc = GetComponent<BoxCollider>();
+		rb = GetComponent<Rigidbody>();
+		
 	}
     private void OnCollisionEnter(Collision collision)
     {
@@ -25,11 +31,30 @@ public class BlockHit : MonoBehaviourPunCallbacks
                 playerRb.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
             }
             // Only the owner or master client should call Destroy to prevent duplicate calls
-            if (PhotonNetwork.IsMasterClient)
-            {
-                PhotonNetwork.Destroy(gameObject);
-            }
+            
         }
+        if (transform.position.y > -1f)
+        {
+        	if (PhotonNetwork.IsMasterClient)
+	    {
+		PhotonNetwork.Destroy(gameObject);
+	    }
+	    if (particleEffectPrefab != null)
+	    {
+		Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
+	    }
+	}
+    }
+    
+    public void disableCollider()
+    {
+    	bc.enabled = false;
+    }
+    
+    public void enableCollider()
+    {
+    	bc.enabled = true;
+    	rb.constraints = RigidbodyConstraints.None;
     }
 }
 
