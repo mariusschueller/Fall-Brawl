@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: FallBrawl
+  companyName: DefaultCompany
   productName: Fall Brawl
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -142,9 +142,6 @@ PlayerSettings:
   bundleVersion: 0.1.0
   preloadedAssets:
   - {fileID: 11400000, guid: 53ae16315a6e9cdd3b722fb49fc79d5d, type: 2}
-  - {fileID: 11400000, guid: 8587ec2b134b4a47999fde1936262eb5, type: 2}
-  - {fileID: -1887773104128701166, guid: 282de02b6fb1ec8abb9322c08ead883d, type: 2}
-  - {fileID: -3154910937159850535, guid: 6f723f45209fd1032a68b756bb79cde3, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
