@@ -21,15 +21,26 @@ private void CreatePlayer()
 {
     Debug.Log("Creating player");
 
-    RandomValueGenerator();
+    //RandomValueGenerator();
+    
+    Vector3 location = new Vector3(0,0,0);
 
     // Check if this player is the first or second player in the room
     if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+    { 
+    	location = new Vector3(1.5f,0f,5f);
+    }
+    
+    else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
     {
+    	location = new Vector3(12.5f,0f,5f);
+    }
+    //{
         // Instantiate the first prefab for the first player
         player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", playerName), 
-            new Vector3(actualXChoice, 0, actualZChoice), Quaternion.identity);
-    }
+            location, Quaternion.identity);
+    //}
+    /*
     else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
     {
         // Instantiate a different prefab for the second player
@@ -42,7 +53,7 @@ private void CreatePlayer()
         player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", playerName), 
             new Vector3(actualXChoice, 0, actualZChoice), Quaternion.identity);
     }
-    
+    */
     PhotonView photonView = player.GetComponent<PhotonView>();
 
     // If this is the local player, activate the camera; otherwise, deactivate it

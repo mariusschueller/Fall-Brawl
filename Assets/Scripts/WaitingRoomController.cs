@@ -19,24 +19,59 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
     [SerializeField] private TextMeshProUGUI roomCountDisplay;
     [SerializeField] private TextMeshProUGUI waitingForHost;
     
+    [SerializeField] private GameObject selects;
+    private int selectNum;
+    [SerializeField] private GameObject spaceSelect;
+    [SerializeField] private GameObject waterSelect;
+    
     [SerializeField] private Button startButton;
     
+    private bool sceneSet;
+    
     private bool startingGame;
-    public int minPlayers = 2;
+    private int minPlayers = 1;
+    
+    private Vector3 rotation;
+    
+    void Update() 
+    {
+    	if (selectNum == 1)
+    	{
+    		//rotate space
+    		 
+    		 spaceSelect.transform.Rotate(rotation, Space.Self);
+    	} 
+    	
+    	else if (selectNum == 2)
+    	{
+    		//rotate water
+    		waterSelect.transform.Rotate(rotation, Space.Self);
+    	} 
+    
+    }
     
     // Start is called before the first frame update
     void Start()
     {
+    	rotation = new Vector3(0, 50f, 0) * Time.deltaTime;
         myPhotonView = GetComponent<PhotonView>();
 
+        
+        
+        selectNum = 1;
         PlayerCountUpdate();
+        
+        sceneSet = false;
         
         // if client then show start button
         if (PhotonNetwork.IsMasterClient)
         {
+            selects.gameObject.SetActive(true);
             startButton.gameObject.SetActive(true);
             waitingForHost.gameObject.SetActive(false);
+            
         }
+        
         
     }
 
@@ -47,7 +82,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
         roomCountDisplay.text = "Players Joined: " + playerCount;
         
         // check that at least 2 people are in the room and then set start to interactable if client
-        startButton.interactable = playerCount >= minPlayers;
+        startButton.interactable = (playerCount >= minPlayers) && selectNum > 0;
         
     }
 
@@ -75,5 +110,20 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene(menuSceneIndex);
+    }
+    
+    public void SetSceneSpace()
+    {
+    	Debug.Log("Space being set");
+    	
+    	selectNum = 1;
+    	sceneSet = true;
+    }
+    
+    public void SetSceneWater()
+    {
+    	Debug.Log("Water being set");
+    	sceneSet = true;
+    	selectNum = 2;
     }
 }
