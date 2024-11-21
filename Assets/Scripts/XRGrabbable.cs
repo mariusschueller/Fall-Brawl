@@ -7,6 +7,7 @@ public class XRGrabbable : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable;
     public  UnityEvent grabEvent;
+    public  UnityEvent releaseEvent;
     
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class XRGrabbable : MonoBehaviour
 
     private void OnRelease(SelectExitEventArgs args)
     {
+    	releaseEvent.Invoke();
         // Logic to execute when the object is released
         Debug.Log($"{gameObject.name} released by {args.interactorObject.transform.name}");
     }
