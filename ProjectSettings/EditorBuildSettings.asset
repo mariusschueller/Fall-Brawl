@@ -6,22 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
     path: Assets/Scenes/Start.unity
     guid: 56b546a8f00b2421799d70646043e45f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NetworkingStart.unity
     guid: 74927338118c318a8ad80bbb2164ae98
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WaitingRoom.unity
     guid: 54382639c6031b72e96ec6f3111455b1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestGame.unity
     guid: 1f0620711daad57a89d4c2add5ff30ad
-  - enabled: 1
-    path: Assets/Scenes/Victory.unity
-    guid: 5f58c37763473437aad0fe3a287421b8
+  - enabled: 0
+    path: Assets/Scenes/FallingScene.unity
+    guid: a960a02e44cbb91e3a2a00eb488fe1e5
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8587ec2b134b4a47999fde1936262eb5,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 282de02b6fb1ec8abb9322c08ead883d,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 6f723f45209fd1032a68b756bb79cde3,
       type: 2}
