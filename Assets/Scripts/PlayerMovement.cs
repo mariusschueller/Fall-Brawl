@@ -63,5 +63,13 @@ public class PlayerMovement : MonoBehaviour
         // Apply the calculated velocity to the Rigidbody
         rb.velocity = new Vector3(currentVelocity.x, rb.velocity.y, currentVelocity.z); // Retain Y velocity for gravity
     }
+    
+    public void PowerupStart(){
+    	speed = 4.0f;
+    }
+    
+    public void PowerupEnd(){
+    	speed = 2.0f;
+    }
 }
 

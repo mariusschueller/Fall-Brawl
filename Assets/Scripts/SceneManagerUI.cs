@@ -9,5 +9,11 @@ public class SceneManagerUI : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    
+    public static void BackToStart()
+    {
+    	SceneManager.LoadScene(1);
+    }
+    
 
 }

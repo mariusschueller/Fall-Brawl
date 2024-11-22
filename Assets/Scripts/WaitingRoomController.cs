@@ -58,7 +58,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
 
         
         
-        selectNum = 1;
+        selectNum = 2;
         PlayerCountUpdate();
         
         sceneSet = false;
@@ -66,7 +66,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
         // if client then show start button
         if (PhotonNetwork.IsMasterClient)
         {
-            selects.gameObject.SetActive(true);
+            //selects.gameObject.SetActive(true);
             startButton.gameObject.SetActive(true);
             waitingForHost.gameObject.SetActive(false);
             
@@ -83,6 +83,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
         
         // check that at least 2 people are in the room and then set start to interactable if client
         startButton.interactable = (playerCount >= minPlayers) && selectNum > 0;
+        PlayerPrefs.SetInt("select", selectNum);
         
     }
 
@@ -118,6 +119,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
     	
     	selectNum = 1;
     	sceneSet = true;
+    	PlayerPrefs.SetInt("select", selectNum);
     }
     
     public void SetSceneWater()
@@ -125,5 +127,6 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
     	Debug.Log("Water being set");
     	sceneSet = true;
     	selectNum = 2;
+    	PlayerPrefs.SetInt("select", selectNum);
     }
 }
