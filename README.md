@@ -26,6 +26,10 @@ Sprint 4 Tasks: <br> Two players can now throw pieces at each other and get knoc
 
 Sprint 4 APK: https://drive.google.com/file/d/1SY3o2dt5TVCYSZbaqrISth8bAS_ROFQ_/view?usp=sharing
 
+Sprint 5 Tasks: <br> A speed powerup has been added to the game which the player can use by running into it. Player model was added to main game prefab. Improved character rigging. Particle effects added when a block breaks (when it hits the ground or another player). Visual ground falling cues added. Game over screens also added to the game.
+
+Sprint 5 APK: https://drive.google.com/file/d/1VLfD_pTsIxgKjw0r0Z_aJrN9rDltFdU9/view?usp=drive_link
+
 # Setup Instructions
 - clone the repository
 - in unity, you can view the different scenes, scripts, and assets we have added to the project. 
