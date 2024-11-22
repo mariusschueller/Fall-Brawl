@@ -8,6 +8,8 @@ Sprint 3 Video Link: https://drive.google.com/file/d/1ha2HNWAVX6is9yv40mjdYjJGQc
 
 Sprint 4 Video Link: https://drive.google.com/file/d/15PcDmPQPISeFms4Q31CREy-0r27YUUIU/view?usp=sharing
 
+Final Pitch Video Link: https://drive.google.com/file/d/1wW7siuxDmn6gFPpfQeI4gSDEsZcynOMN/view?usp=sharing
+
 Sprint 1 Tasks:<br>
 Added GroundFall.cs: Script that causes pieces to fall after a set amount of time. This script also changes the color of the blocks to red as time runs out.
 Created UI/UX mockups in Figma of select screen, home screen, and color scheme.
