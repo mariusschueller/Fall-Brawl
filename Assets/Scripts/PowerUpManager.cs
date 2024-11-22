@@ -8,54 +8,45 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class PowerUpManager : MonoBehaviour
 {
-    public GameObject speedCircle; // assign the speed circle prefab in the inspector
-    public float speedMultiplier = 1.5f; // factor to increase movement speed for speed
-    public float powerUpDuration = 15f; // duration of power-up effects in seconds
+    public GameObject speedCircle;
+    public float speedMultiplier = 1.5f; 
+    public float powerUpDuration = 5f;
     private bool isSpeedActive = false;
-
-    private ContinuousMoveProviderBase moveProvider; // reference to move provider
+    
+    
+    private PlayerMovement pm;
+    
+    //private ContinuousMoveProviderBase moveProvider; // reference to move provider
     private float originalMoveSpeed;
 
-    void Start()
-    {
-        // get reference to movement provider to adjust speed
-        moveProvider = FindObjectOfType<ContinuousMoveProviderBase>();
-        if (moveProvider != null)
-        {
-            originalMoveSpeed = moveProvider.moveSpeed;
-        }
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
-        // check if the player collides with the "Lightning" tagged object
-        // if (other.CompareTag("PowerUp") && other.gameObject.name.Contains("Lightning") && !isSpeedActive)
-        if (other.CompareTag("Player") && other.gameObject.name.Contains("XR Origin (XR Rig)") && !isSpeedActive)
+    	
+    	
+        if (other.CompareTag("Player") && !isSpeedActive)
         {
             Debug.Log("Entering!");
+            pm = other.gameObject.GetComponent<PlayerMovement>();
+            
             ActivateSpeed();
-            Instantiate(speedCircle, transform.position, Quaternion.identity); // spawn the speed circle around the player
 
-            // destroy the sphere after activation
-            // Destroy(other.gameObject);
+	    // Photon instantiate?
+            Instantiate(speedCircle, transform.position, Quaternion.identity); 
+
+            // Do photon destroy?
             Destroy(this.gameObject);
         }
     }
 
     private void ActivateSpeed()
     {
-        if (isSpeedActive || moveProvider == null) return; // prevent multiple activations
-        isSpeedActive = true;
-        moveProvider.moveSpeed *= speedMultiplier; // increase movement speed
-        Invoke("DeactivateSpeed", powerUpDuration); // deactivate after duration
+        pm.PowerupStart();
+        Invoke("DeactivateSpeed", powerUpDuration); 
     }
 
     private void DeactivateSpeed()
     {
-        isSpeedActive = false;
-        if (moveProvider != null)
-        {
-            moveProvider.moveSpeed = originalMoveSpeed; // reset movement speed
-        }
+        pm.PowerupEnd();
     }
 }

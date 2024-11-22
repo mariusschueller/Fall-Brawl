@@ -11,9 +11,12 @@ public class GroundFall : MonoBehaviour
     private float totalTimeStepped;
     private float previousStepTime;
     private Renderer r;
-    
+
     private Rigidbody rb;
-    
+
+    // Public boolean to control color transition (true = blue, false = green)
+    private bool isBlue = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,26 +24,35 @@ public class GroundFall : MonoBehaviour
         previousStepTime = 0.0f;
         rb = GetComponent<Rigidbody>();
         r = GetComponent<Renderer>();
+
+        // Set initial color based on isBlue
+        r.material.color = PlayerPrefs.GetInt("select") == 2 ? Color.blue : Color.green;
     }
-    
+
     // Update is called once per frame
     void Update()
     {
         if (isSteppedOn > 0)
         {
             totalTimeStepped = (Time.time - startingStepTime) + previousStepTime;
-            // Debug.Log(totalTimeStepped);
-            if (r.material.color.r < totalTimeStepped / timeUntilFall &&
-                r.material.color.g > 1 - (totalTimeStepped / timeUntilFall))
+
+            // Interpolate between blue/green and red based on progress
+            float progress = Mathf.Clamp01(totalTimeStepped / timeUntilFall);
+            if (isBlue)
             {
-                r.material.color = new Color(totalTimeStepped / timeUntilFall, 1-(totalTimeStepped/timeUntilFall), 0,1.0f);
+                // Blue to Red
+                r.material.color = new Color(progress, 0, 1 - progress, 1.0f);
             }
-            
+            else
+            {
+                // Green to Red
+                r.material.color = new Color(progress, 1 - progress, 0, 1.0f);
+            }
         }
 
         if (totalTimeStepped >= timeUntilFall)
         {
-            //Debug.Log("Fall");
+            // Trigger fall and set final color to red
             rb.constraints = RigidbodyConstraints.None;
             rb.useGravity = true;
             r.material.color = Color.red;
@@ -52,12 +64,7 @@ public class GroundFall : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isSteppedOn += 1;
-
             startingStepTime = Time.time;
-
-
-            //Debug.Log("starting step");
-            
         }
     }
 
@@ -67,9 +74,7 @@ public class GroundFall : MonoBehaviour
         {
             isSteppedOn -= 1;
             previousStepTime += totalTimeStepped;
-            //Debug.Log("Ending step");
         }
     }
-
-    
 }
+

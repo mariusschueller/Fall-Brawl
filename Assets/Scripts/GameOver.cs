@@ -21,8 +21,9 @@ public class GameOver : MonoBehaviourPun
     private void GameOverRun()
     {
         // Code to execute game-over logic for each player
-        Debug.Log("Game Over!");
+        //Debug.Log("Game Over!");
         // Show win or lose UI here based on current y
+       
         
     }
 }
