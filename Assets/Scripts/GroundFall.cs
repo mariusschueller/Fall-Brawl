@@ -27,6 +27,7 @@ public class GroundFall : MonoBehaviour
 
         // Set initial color based on isBlue
         r.material.color = PlayerPrefs.GetInt("select") == 2 ? Color.blue : Color.green;
+        isBlue = PlayerPrefs.GetInt("select") == 2;
     }
 
     // Update is called once per frame
