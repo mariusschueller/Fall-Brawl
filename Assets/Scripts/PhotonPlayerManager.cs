@@ -12,7 +12,7 @@ public class PhotonPlayerManager : MonoBehaviourPun
     
     
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
            pv = GetComponent<PhotonView>();
            if (pv.IsMine)
@@ -23,7 +23,7 @@ public class PhotonPlayerManager : MonoBehaviourPun
            {
                Camera.SetActive(false);
            }
-    }
+    }*/
 
     // Update is called once per frame
     //void Update()
