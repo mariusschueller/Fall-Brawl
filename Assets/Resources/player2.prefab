@@ -2338,7 +2338,7 @@ MonoBehaviour:
   pm: {fileID: 3407994639717291346}
   self: {fileID: 2576648004653510225}
   smr: {fileID: 20762774002284669}
-  hideplayer: 0
+  hideplayer: 1
 --- !u!1 &7549453745111892894
 GameObject:
   m_ObjectHideFlags: 0
