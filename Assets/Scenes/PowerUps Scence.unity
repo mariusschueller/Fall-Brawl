@@ -881,12 +881,6 @@ MonoBehaviour:
     type: 3}
   speedMultiplier: 1.5
   powerUpDuration: 15
-  speedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  speedEndEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!54 &422979325
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1872,12 +1866,6 @@ MonoBehaviour:
     type: 3}
   speedMultiplier: 1.5
   powerUpDuration: 15
-  speedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  speedEndEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!64 &1339335910
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2663,12 +2651,6 @@ MonoBehaviour:
     type: 3}
   speedMultiplier: 1.5
   powerUpDuration: 15
-  speedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  speedEndEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!64 &1565933145
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2890,12 +2872,6 @@ MonoBehaviour:
     type: 3}
   speedMultiplier: 1.5
   powerUpDuration: 15
-  speedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  speedEndEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!64 &2096780704
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3095,12 +3071,6 @@ MonoBehaviour:
     type: 3}
   speedMultiplier: 1.5
   powerUpDuration: 15
-  speedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  speedEndEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
