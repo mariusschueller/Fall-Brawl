@@ -32,6 +32,8 @@ Sprint 5 Tasks: <br> A speed powerup has been added to the game which the player
 
 Sprint 5 APK: https://drive.google.com/file/d/1VLfD_pTsIxgKjw0r0Z_aJrN9rDltFdU9/view?usp=drive_link
 
+Final APK: https://drive.google.com/file/d/1FSdk6-aZebjGDZ6a92FDd58nOL2_Ityv/view?usp=sharing
+
 # Setup Instructions
 - clone the repository
 - in unity, you can view the different scenes, scripts, and assets we have added to the project. 
