@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         SpawnPlayer();
-        SpawnPowerUp(); // Start spawning power-ups
+        //SpawnPowerUp(); // Start spawning power-ups
         if (PlayerPrefs.GetInt("select") == 2) {
         	RenderSettings.skybox = greenSkybox;
         }

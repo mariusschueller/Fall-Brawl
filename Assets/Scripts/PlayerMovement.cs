@@ -82,7 +82,7 @@ public void ApplyKnockback(Vector3 force)
     Rigidbody rb = GetComponent<Rigidbody>();
     if (rb != null)
     {
-        rb.AddForce(force, ForceMode.Impulse);
+        rb.AddForce(force/4, ForceMode.Impulse);
     }
 }
 

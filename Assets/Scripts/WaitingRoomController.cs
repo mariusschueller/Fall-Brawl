@@ -66,7 +66,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
         // if client then show start button
         if (PhotonNetwork.IsMasterClient)
         {
-            //selects.gameObject.SetActive(true);
+            selects.gameObject.SetActive(true);
             startButton.gameObject.SetActive(true);
             waitingForHost.gameObject.SetActive(false);
             

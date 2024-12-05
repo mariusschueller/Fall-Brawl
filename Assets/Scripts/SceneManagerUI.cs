@@ -12,7 +12,7 @@ public class SceneManagerUI : MonoBehaviour
     
     public static void BackToStart()
     {
-    	SceneManager.LoadScene(1);
+    	SceneManager.LoadScene(0);
     }
     
     public static void HowToPlay(){

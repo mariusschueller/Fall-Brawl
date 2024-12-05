@@ -19,7 +19,7 @@ public class BlockHit : MonoBehaviourPunCallbacks
     private void OnCollisionEnter(Collision collision)
 {
     // Check if the object is above the threshold height
-    if (transform.position.y > -1f)
+    if (transform.position.y > -.9f)
     {
         PhotonView photonView = GetComponent<PhotonView>();
 
