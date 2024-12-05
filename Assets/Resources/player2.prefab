@@ -2275,7 +2275,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1.9
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: -0.1}
+  m_Center: {x: 0, y: 0.85, z: -0.1}
 --- !u!54 &2860227820887074659
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2338,6 +2338,7 @@ MonoBehaviour:
   pm: {fileID: 3407994639717291346}
   self: {fileID: 2576648004653510225}
   smr: {fileID: 20762774002284669}
+  hideplayer: 1
 --- !u!1 &7549453745111892894
 GameObject:
   m_ObjectHideFlags: 0
