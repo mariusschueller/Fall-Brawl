@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     public int activeNum;
     public PlayerMovement pm;
     public GameObject self;
+    public SkinnedMeshRenderer smr;
     private float knockbackForce = 20f;
     int actorNumber;
 
@@ -51,6 +52,8 @@ public class PlayerManager : MonoBehaviour
             
         if (pm != null)
             pm.enabled = true;
+            
+        smr.enabled = false;
 
         // Enable any other player-specific components here.
     }
@@ -69,7 +72,8 @@ public class PlayerManager : MonoBehaviour
             pm.enabled = false;
             
         self.SetActive(false);
-            
+        
+        smr.enabled = true;
            
 
         // Disable any other player-specific components here.

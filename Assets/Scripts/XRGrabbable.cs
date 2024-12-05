@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.Events;
+using Photon.Pun;
 
 [RequireComponent(typeof(XRGrabInteractable))]
 public class XRGrabbable : MonoBehaviour
@@ -40,6 +41,11 @@ public class XRGrabbable : MonoBehaviour
         grabEvent.Invoke();
         if (usePrivate){
 		bh.DisableCollider();
+		PhotonView photonView = GetComponent<PhotonView>();
+		if (photonView != null && !photonView.IsMine)
+        	{
+                photonView.RequestOwnership();
+        	}
 	}
         
     }

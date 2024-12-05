@@ -395,7 +395,7 @@ MonoBehaviour:
   m_EnableUIInteraction: 1
   m_BlockUIOnInteractableSelection: 1
   m_AllowAnchorControl: 0
-  m_UseForceGrab: 1
+  m_UseForceGrab: 0
   m_RotateSpeed: 180
   m_TranslateSpeed: 1
   m_AnchorRotateReferenceFrame: {fileID: 0}
@@ -2337,6 +2337,7 @@ MonoBehaviour:
   activeNum: 2
   pm: {fileID: 3407994639717291346}
   self: {fileID: 2576648004653510225}
+  smr: {fileID: 20762774002284669}
 --- !u!1 &7549453745111892894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,6 +2807,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2881129367733781794}
   m_SourcePrefab: {fileID: 100100000, guid: bf75a86fb2f384865831e1e9747f8e35, type: 3}
+--- !u!137 &20762774002284669 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3919144622627161780, guid: bf75a86fb2f384865831e1e9747f8e35,
+    type: 3}
+  m_PrefabInstance: {fileID: 5320340061468344625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &420944536907272171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3746190272939815206, guid: bf75a86fb2f384865831e1e9747f8e35,
