@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/YouWin.unity
     guid: 6e15596cfcb8a2897a2c1eea90526140
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: c4b36b56655675df48aaed07fd4e66df
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8587ec2b134b4a47999fde1936262eb5,
       type: 2}

@@ -15,5 +15,9 @@ public class SceneManagerUI : MonoBehaviour
     	SceneManager.LoadScene(1);
     }
     
+    public static void HowToPlay(){
+    	SceneManager.LoadScene("HowToPlay");
+    }
+    
 
 }

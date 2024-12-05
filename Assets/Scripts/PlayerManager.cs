@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject self;
     public SkinnedMeshRenderer smr;
     private float knockbackForce = 20f;
+    public bool hideplayer = true;
     int actorNumber;
 
     void Awake()
@@ -53,7 +54,8 @@ public class PlayerManager : MonoBehaviour
         if (pm != null)
             pm.enabled = true;
             
-        smr.enabled = false;
+        if (hideplayer)
+            smr.enabled = false;
 
         // Enable any other player-specific components here.
     }
