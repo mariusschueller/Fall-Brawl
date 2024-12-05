@@ -187,7 +187,7 @@ MonoBehaviour:
   speedCircle: {fileID: 3744133877081091469, guid: a2a060732547fe64581bb0cb3c2bdf1d,
     type: 3}
   speedMultiplier: 1.5
-  powerUpDuration: 15
+  powerUpDuration: 5
 --- !u!114 &7257987717315514714
 MonoBehaviour:
   m_ObjectHideFlags: 0

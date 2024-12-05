@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using Photon.Pun;
 using UnityEngine.XR;
 
 using UnityEngine;
@@ -31,11 +31,13 @@ public class PowerUpManager : MonoBehaviour
             
             ActivateSpeed();
 
-	    // Photon instantiate?
-            Instantiate(speedCircle, transform.position, Quaternion.identity); 
+	    
+            Vector3 originalPos = transform.position;
+            originalPos.y = originalPos.y - 2;
+            PhotonNetwork.Instantiate(speedCircle.name, transform.position, Quaternion.identity);
 
-            // Do photon destroy?
-            Destroy(this.gameObject);
+            // Destroy the power-up object across all clients
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 
