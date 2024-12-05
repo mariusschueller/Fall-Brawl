@@ -38,6 +38,7 @@ public class PowerUpManager : MonoBehaviour
 
             // Destroy the power-up object across all clients
             PhotonNetwork.Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
