@@ -112,7 +112,7 @@ private void EnableControllerComponents(GameObject playerInstance, bool enable)
         }
 
         // Schedule the next spawn
-        Invoke(nameof(SpawnPowerUp), 20f);
+        Invoke(nameof(SpawnPowerUp), 30f);
     }
 }
 
