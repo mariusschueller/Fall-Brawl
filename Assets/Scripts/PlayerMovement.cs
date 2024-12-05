@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR;
 using Unity.XR.CoreUtils;
+using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -35,34 +36,36 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate()
+{
+    // Calculate target direction relative to the player's head direction
+    Quaternion headRotation = Quaternion.Euler(0, xrRig.Camera.transform.eulerAngles.y, 0);
+    Vector3 targetDirection = headRotation * new Vector3(inputAxis.x, 0, inputAxis.y);
+
+    // Smooth acceleration and deceleration
+    Vector3 desiredVelocity;
+    if (targetDirection.magnitude > 0.1f)
     {
-        // Calculate target direction relative to the player's head direction
-        Quaternion headRotation = Quaternion.Euler(0, xrRig.Camera.transform.eulerAngles.y, 0);
-        Vector3 targetDirection = headRotation * new Vector3(inputAxis.x, 0, inputAxis.y);
-
-        // Smooth acceleration and deceleration
-        if (targetDirection.magnitude > 0.1f)
-        {
-            // Accelerate towards the target velocity
-            currentVelocity = Vector3.MoveTowards(
-                currentVelocity, 
-                targetDirection * speed, 
-                acceleration * Time.fixedDeltaTime
-            );
-        }
-        else
-        {
-            // Decelerate to a stop
-            currentVelocity = Vector3.MoveTowards(
-                currentVelocity, 
-                Vector3.zero, 
-                deceleration * Time.fixedDeltaTime
-            );
-        }
-
-        // Apply the calculated velocity to the Rigidbody
-        rb.velocity = new Vector3(currentVelocity.x, rb.velocity.y, currentVelocity.z); // Retain Y velocity for gravity
+        // Accelerate towards the target velocity
+        desiredVelocity = Vector3.MoveTowards(
+            rb.velocity, 
+            new Vector3(targetDirection.x * speed, rb.velocity.y, targetDirection.z * speed), 
+            acceleration * Time.fixedDeltaTime
+        );
     }
+    else
+    {
+        // Decelerate to a stop, only affecting X and Z axes
+        desiredVelocity = Vector3.MoveTowards(
+            rb.velocity, 
+            new Vector3(0, rb.velocity.y, 0), 
+            deceleration * Time.fixedDeltaTime
+        );
+    }
+
+    // Update Rigidbody velocity without overriding Y axis forces (like gravity or AddForce effects)
+    rb.velocity = desiredVelocity;
+}
+
     
     public void PowerupStart(){
     	speed = 4.0f;
@@ -71,5 +74,18 @@ public class PlayerMovement : MonoBehaviour
     public void PowerupEnd(){
     	speed = 2.0f;
     }
+    
+    [PunRPC]
+public void ApplyKnockback(Vector3 force)
+{
+    Rigidbody rb = GetComponent<Rigidbody>();
+    if (rb != null)
+    {
+        rb.AddForce(force, ForceMode.Impulse);
+    }
 }
+}
+
+
+
 
