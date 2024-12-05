@@ -24,10 +24,39 @@ public class LobbyController : MonoBehaviourPunCallbacks
     [SerializeField] 
     private int roomSize;
 
+    private bool isReconnecting = false;
+    
+    void Start(){
+	DisconnectAndReconnect();
+    }
+
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
         StartButton.SetActive(true);
+
+        if (isReconnecting)
+        {
+            Debug.Log("Reconnected to Photon server.");
+            isReconnecting = false;
+        }
+    }
+
+    public void DisconnectAndReconnect()
+    {
+        Debug.Log("Disconnecting...");
+        isReconnecting = true;
+        PhotonNetwork.Disconnect();
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        Debug.Log($"Disconnected from Photon server. Cause: {cause}");
+        if (isReconnecting)
+        {
+            Debug.Log("Reconnecting...");
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public void DelayStart()
@@ -58,8 +87,6 @@ public class LobbyController : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom("Room" + randomRoomNumber, roomOptions);
         Debug.Log("Created Room" + randomRoomNumber);
     }
-    
-    
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
@@ -72,3 +99,4 @@ public class LobbyController : MonoBehaviourPunCallbacks
         JoinCodeButton.interactable = Regex.IsMatch(joinCodeText.text, @"[a-zA-Z0-9]");
     }
 }
+

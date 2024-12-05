@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using Unity.XR.CoreUtils;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -84,6 +85,17 @@ public void ApplyKnockback(Vector3 force)
         rb.AddForce(force, ForceMode.Impulse);
     }
 }
+
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Death"))
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
+
+
 }
 
 

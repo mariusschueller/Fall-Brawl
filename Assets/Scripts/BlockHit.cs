@@ -17,20 +17,37 @@ public class BlockHit : MonoBehaviourPunCallbacks
     }
 
     private void OnCollisionEnter(Collision collision)
+{
+    // Check if the object is above the threshold height
+    if (transform.position.y > -1f)
     {
-        if (transform.position.y > -1f)
-        {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                PhotonNetwork.Destroy(gameObject);
-            }
+        PhotonView photonView = GetComponent<PhotonView>();
 
-            if (particleEffectPrefab != null)
+        // Only the MasterClient can destroy the object
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (photonView != null)
             {
-                Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
+                // Check if the object is instantiated via Photon
+                if (photonView.Owner == null || photonView.IsMine)
+                {
+                    PhotonNetwork.Destroy(gameObject);
+                }
             }
         }
+        else
+        {
+            Debug.LogWarning("Only the MasterClient can destroy objects in this setup.");
+        }
+
+        // Instantiate particle effect locally
+        if (particleEffectPrefab != null)
+        {
+            Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
+        }
     }
+}
+
 
     public void DisableCollider()
     {
