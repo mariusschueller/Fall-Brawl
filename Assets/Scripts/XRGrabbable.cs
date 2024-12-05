@@ -9,6 +9,9 @@ public class XRGrabbable : MonoBehaviour
     public  UnityEvent grabEvent;
     public  UnityEvent releaseEvent;
     
+    public bool usePrivate = false;
+    private BlockHit bh;
+    
     private void Awake()
     {
         // Get the XRGrabInteractable component
@@ -17,6 +20,10 @@ public class XRGrabbable : MonoBehaviour
         // Register grab and release event listeners
         grabInteractable.selectEntered.AddListener(OnGrab);
         grabInteractable.selectExited.AddListener(OnRelease);
+        
+        if (usePrivate){
+		bh = GetComponent<BlockHit>();
+	}
     }
 
     private void OnDestroy()
@@ -31,6 +38,10 @@ public class XRGrabbable : MonoBehaviour
         // Logic to execute when the object is grabbed
         Debug.Log($"{gameObject.name} grabbed by {args.interactorObject.transform.name}");
         grabEvent.Invoke();
+        if (usePrivate){
+		bh.DisableCollider();
+	}
+        
     }
 
     private void OnRelease(SelectExitEventArgs args)
@@ -38,6 +49,9 @@ public class XRGrabbable : MonoBehaviour
     	releaseEvent.Invoke();
         // Logic to execute when the object is released
         Debug.Log($"{gameObject.name} released by {args.interactorObject.transform.name}");
+        if (usePrivate){
+		bh.EnableCollider();
+	}
     }
 }
 

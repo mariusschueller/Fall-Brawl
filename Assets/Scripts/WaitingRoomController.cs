@@ -58,7 +58,7 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
 
         
         
-        selectNum = 2;
+        selectNum = 1;
         PlayerCountUpdate();
         
         sceneSet = false;

@@ -1,4 +1,4 @@
-Shader "Custom/UnlitColorChangeShader"
+Shader "Custom/LitColorChangeShader"
 {
     Properties
     {
@@ -7,7 +7,7 @@ Shader "Custom/UnlitColorChangeShader"
     SubShader
     {
         Tags { "RenderType"="Opaque" }
-        LOD 100
+        LOD 200
 
         Pass
         {
@@ -20,12 +20,14 @@ Shader "Custom/UnlitColorChangeShader"
             struct appdata_t
             {
                 float4 vertex : POSITION;
+                float3 normal : NORMAL;
             };
 
             struct v2f
             {
                 float4 vertex : SV_POSITION;
-                float4 color : COLOR;
+                float3 worldNormal : TEXCOORD0;
+                float3 worldPos : TEXCOORD1;
             };
 
             fixed4 _Color;
@@ -34,13 +36,23 @@ Shader "Custom/UnlitColorChangeShader"
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.color = _Color;
+
+                // Transform normal and position to world space
+                o.worldNormal = UnityObjectToWorldNormal(v.normal);
+                o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
-                return i.color;
+                // Compute lighting
+                float3 lightDir = normalize(_WorldSpaceLightPos0.xyz);
+                float NdotL = max(dot(i.worldNormal, lightDir), 0);
+
+                // Combine base color with diffuse lighting
+                fixed3 diffuse = _Color.rgb * NdotL;
+                return fixed4(diffuse, _Color.a);
             }
             ENDCG
         }

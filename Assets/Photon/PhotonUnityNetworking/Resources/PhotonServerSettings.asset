@@ -42,6 +42,9 @@ MonoBehaviour:
   - RPC_SendTimer
   - GameOverRun
   - GameOver
+  - ApplyKnockback
+  - SyncDisableCollider
+  - SyncEnableCollider
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
