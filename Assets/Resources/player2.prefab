@@ -2338,7 +2338,7 @@ MonoBehaviour:
   pm: {fileID: 3407994639717291346}
   self: {fileID: 2576648004653510225}
   smr: {fileID: 20762774002284669}
-  hideplayer: 1
+  hideplayer: 0
 --- !u!1 &7549453745111892894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,7 +2918,7 @@ MonoBehaviour:
     ikTarget: {fileID: 2908186912006606822}
     trackingPositionOffset: {x: 0, y: 0, z: 0}
     trackingRotationOffset: {x: 0, y: 0, z: 0}
-  headBodyPositionOffset: {x: 0, y: -0.33, z: -0.47}
+  headBodyPositionOffset: {x: 0, y: -0.33, z: -0.6}
   headBodyYawOffset: 0
 --- !u!4 &5647263680122103514 stripped
 Transform:
